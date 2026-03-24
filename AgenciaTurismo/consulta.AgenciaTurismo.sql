@@ -220,3 +220,26 @@ SELECT TOP 5
                 ON cl.Id = rv.IdCliente
     GROUP BY cl.Nome
     ORDER BY TotalGasto DESC;
+
+
+
+--     SELECT                                         -- inicia a seleção das colunas
+--         cl.Nome as NomeCliente,                -- nome do cliente (tabela Cliente)
+--         cl.CPF as CPFCliente,                  -- CPF do cliente (tabela Cliente)
+--         cl.Telefone as TelefoneCliente,        -- telefone do cliente (tabela Cliente)
+--         pk.Nome as NomePacote,                 -- nome do pacote (tabela Pacote)
+--         pk.Preco as PrecoPacote,               -- preço do pacote (tabela Pacote)
+--         rv.Quantidade as Quantidade,           -- quantidade de pessoas (tabela Reserva)
+--         rv.ValorReserva as ValorReserva,       -- valor total da reserva (tabela Reserva)
+--         sr.Nome as StatusReserva,              -- status da reserva (tabela StatuReserva)
+--         FORMAT(rv.DataReserva, 'dd/MM/yyyy') as DataReserva -- data formatada no padrão BR
+-- FROM Reserva AS rv                             -- tabela principal é Reserva (alias rv)
+--         JOIN Cliente AS cl                     -- liga com Cliente
+--                 ON cl.Id = rv.IdCliente        -- onde o Id do Cliente = IdCliente da Reserva
+--         JOIN Pacote AS pk                      -- liga com Pacote
+--                 ON pk.Id = rv.IdPacote         -- onde o Id do Pacote = IdPacote da Reserva
+--         JOIN StatuReserva AS sr                -- liga com StatusReserva
+--                 ON sr.Id = rv.IdStatusReserva  -- onde o Id do Status = IdStatusReserva da Reserva
+--         JOIN Agencia AS ag                     -- liga com Agencia
+--                 ON ag.Id = rv.IdAgencia        -- onde o Id da Agencia = IdAgencia da Reserva
+-- ORDER BY rv.DataReserva DESC;                  -- ordena pela data mais recente primeiro
