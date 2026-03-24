@@ -2506,3 +2506,58 @@ INSERT INTO Pagamento (IdReserva, IdTipoPagamento, IdStatusPagamento, DataPagame
     (798, 5, 5, '2025-04-05T00:00:00', 9999.90),
     (799, 2, 2, '2025-08-14T00:00:00', 14599.80),
     (800, 5, 5, '2025-10-26T00:00:00', 29199.60);
+
+    
+INSERT INTO Cliente (Nome, CPF, Telefone, Email)
+VALUES ('Rodrigo Diniz', '12345678901', '(83)99999-1234', 'rodrigo@diniz.com');
+
+INSERT INTO Reserva (IdPacote, IdAgencia, IdCliente, IdStatusReserva, DataReserva, Quantidade, ValorReserva)
+VALUES (13, 1, 801, 1, GETDATE(), 2, 17999.80); 
+
+INSERT INTO Pagamento (IdReserva, IdTipoPagamento, IdStatusPagamento, DataPagamento, ValorPago)
+VALUES (801, 3, 1, GETDATE(), 17999.80);
+
+INSERT INTO Pais (Nome, Sigla)
+VALUES ('Japão', 'JP');
+
+INSERT INTO Hotel (IdPais, Nome, Estrela, Logradouro, Numero, Bairro, Cidade, UF)
+VALUES (21, 'Tokyo Imperial Hotel', 5, 'Uchisaiwaicho', '1-1', 'Chiyoda', 'Tokyo', 'JP');
+
+
+UPDATE Agencia
+SET Email = 'novoemail@rdviagens.com.br'
+WHERE Id = 1;
+
+UPDATE Agencia
+SET SiteAgencia = 'www.rdviagens.com.br'
+WHERE Id = 1;
+
+UPDATE Pacote
+SET Preco = Preco * 1.10
+WHERE Id IN (11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
+
+UPDATE Hotel
+SET Estrela = 5
+WHERE Id = 7; 
+
+UPDATE Cliente
+SET Telefone = '(83)99999-0001'
+WHERE Id = 1;
+
+UPDATE Reserva
+SET IdStatusReserva = 3 
+WHERE Id = 5;
+
+UPDATE Pagamento
+SET IdStatusPagamento = 2 
+WHERE IdReserva = 10;
+
+UPDATE Pacote
+SET Duracao = 12
+WHERE Id = 19;
+
+SELECT * FROM Agencia;
+
+SELECT * FROM Cliente
+WHERE Nome LIKE 'Rodrigo%'
+ORDER BY Nome ASC;

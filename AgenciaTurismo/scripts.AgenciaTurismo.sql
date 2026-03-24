@@ -115,3 +115,18 @@ CREATE TABLE Pagamento (
 	CONSTRAINT FK_IdTipoPagamento_Pagamento FOREIGN KEY (IdTipoPagamento) REFERENCES TipoPagamento (Id),
 	CONSTRAINT FK_IdStatusPagamento_Pagamento FOREIGN KEY (IdStatusPagamento) REFERENCES StatusPagamento (Id),
 );
+
+
+--ALTER TABLE Cliente
+--ADD DataNascimento DATE NOT NULL;
+
+ALTER TABLE Agencia
+ADD SiteAgencia VARCHAR(255) NULL;
+
+ALTER TABLE Cliente
+ALTER COLUMN Nome VARCHAR(100) NOT NULL;
+
+ALTER TABLE Pagamento
+ALTER COLUMN ValorPago DECIMAL(10, 2) NOT NULL;
+
+
